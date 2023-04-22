@@ -1,12 +1,35 @@
 body{
     background-color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: "Roboto", "sans-serif";
+    gap: 5vh;
+    margin: 0;
+}
+
+header{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
 }
 
 
 .container{
+
     background-color: black;
     display: grid;
     grid-template-columns: repeat(3,minmax(100px,1fr));
@@ -24,4 +47,31 @@ body{
     font-size: 5rem;
 }
 
+.reset{
+    background-color: white;
+    border: none;
+    font-size: 2rem;
+    margin: 0 20vw 0 20vw;
+    cursor: pointer;
+}
 
+.reset:hover{
+    transition: 0.5s;
+    background-color: black;
+    color: white;
+
+}
+
+
+
+
+
+
+@media(max-width: 600px){
+    main{
+        width: 100vw;
+    }
+    .container{
+        width: 100vw;
+    }
+}
