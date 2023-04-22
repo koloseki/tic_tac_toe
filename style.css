@@ -1,5 +1,5 @@
 body{
-    background-color: #1f1f1f;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,17 +7,21 @@ body{
 
 
 .container{
-    background-color: rosybrown;
+    background-color: black;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3,minmax(100px,1fr));
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 10px;
     height: 50vh;
     width: 50vw;
 }
 
-
-
 .container > button{
-    border:1px solid crimson;
+    background-color: white;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-size: 5rem;
 }
+
+
