@@ -8,8 +8,8 @@ function Player(name, symbol){
 }
 
 
-let player1 = new Player("Player 1", "X");
-let player2 = new Player("Player 2", "O");
+let player1 = new Player("Player 1 (X)", "X");
+let player2 = new Player("Player 2 (O)", "O");
 
 let i = 0;
 let gameOver = false;
@@ -25,17 +25,16 @@ function clicked(x){
 
     let winner = checkWin(currentPlayer);
     if (winner) {
-        console.log(`${winner.name} wygrał!`);
+        console.log(`${winner.name} win!`);
         showWinnerModal(winner.name)
         gameOver = true;
-        // dalsze akcje po wygranej
     } else {
-        console.log("Gra nadal trwa.");
-        // dalsze akcje po każdym ruchu
+        console.log("Game is still in progress");
+
     }
 
     if (gameOver) {
-        // zablokowanie wszystkich przycisków na planszy
+        // block all board buttons
         let buttons = document.querySelectorAll(".square");
         buttons.forEach(button => button.disabled = true);
     }
@@ -47,21 +46,21 @@ function clicked(x){
 function checkWin(currentPlayer) {
     let symbol = currentPlayer.symbol;
 
-    // sprawdzenie wierszy
+    // check rows
     for (let i = 0; i < 9; i += 3) {
         if (gameBoard.board[i] === symbol && gameBoard.board[i+1] === symbol && gameBoard.board[i+2] === symbol) {
             return currentPlayer;
         }
     }
 
-    // sprawdzenie kolumn
+    // check columns
     for (let i = 0; i < 3; i++) {
         if (gameBoard.board[i] === symbol && gameBoard.board[i+3] === symbol && gameBoard.board[i+6] === symbol) {
             return currentPlayer;
         }
     }
 
-    // sprawdzenie przekątnych
+    // check diagonals
     if (gameBoard.board[0] === symbol && gameBoard.board[4] === symbol && gameBoard.board[8] === symbol) {
         return currentPlayer;
     }
