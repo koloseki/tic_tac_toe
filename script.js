@@ -26,6 +26,7 @@ function clicked(x){
     let winner = checkWin(currentPlayer);
     if (winner) {
         console.log(`${winner.name} wygrał!`);
+        showWinnerModal(winner.name)
         gameOver = true;
         // dalsze akcje po wygranej
     } else {
@@ -80,3 +81,26 @@ function reset(){
     buttons.forEach(square => {square.innerHTML = '';});
 
 }
+
+function showWinnerModal(winner) {
+    const modal = document.getElementById('modal');
+    const message = document.getElementById('winner-message');
+    const button = document.getElementById('new-game-button');
+    const button2 = document.getElementById('hide-popup-button');
+
+
+    message.textContent = `${winner.toString()} is a winner!`;
+
+
+    modal.style.display = 'block';
+
+    button.addEventListener('click', function() {
+        modal.style.display = 'none';
+        reset();
+    });
+
+    button2.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+}
+
